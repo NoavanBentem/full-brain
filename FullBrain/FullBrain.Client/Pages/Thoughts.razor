@@ -1,0 +1,32 @@
+﻿@page "/thoughts"
+
+<PageTitle>Thoughts</PageTitle>
+
+<MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="GenerateRandomQuote">Generate Thought</MudButton>
+
+<h1>@currentThought</h1>
+
+@code {
+    public string currentThought = "";
+
+    public string[] thoughts = new[]
+    {
+        "Starting over doesn't equal failure. It shapes you in that you are resilient",
+        "I am capable of achieving my goals, but did I set the right goals",
+        "Some people need to be smacked in their narcissism, but that is not where we spend our energy",
+        "Use the brain juice not to overthink, but to produce",
+        "Doing nothing is not nothing when we are healing",
+        "Maybe I need a tasty snack",
+        "It is okay to not be okay",
+        "Saying hello to strangers and them looking weirdly at you saying nothing, doesn't mean you are stupid. Those people are just not fun"
+        
+    };
+
+    public async Task GenerateRandomQuote()
+    {
+        var random = new Random();
+        currentThought = thoughts[random.Next(0, thoughts.Length - 1)];
+        await InvokeAsync(StateHasChanged);
+    }
+
+}
