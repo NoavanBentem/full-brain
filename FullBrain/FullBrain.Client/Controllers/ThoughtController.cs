@@ -8,14 +8,14 @@ namespace FullBrain.Client.Controllers;
 [Route("api/[controller]")]
 public class ThoughtController : ControllerBase
 {
-    static private List<Thought> thoughts = new List<Thought>
+    static private List<ThoughtModel> thoughts = new List<ThoughtModel>
     {
-        new Thought
+        new ThoughtModel
         {
             Id = 1,
             Text = "Thought 1"
         },
-        new Thought
+        new ThoughtModel
         {
             Id = 2,
             Text = "Thought 2"
@@ -23,7 +23,7 @@ public class ThoughtController : ControllerBase
     };
 
     [HttpGet]
-    public ActionResult<List<Thought>> GetThought()
+    public ActionResult<List<ThoughtModel>> GetThought()
     {
         return Ok(thoughts);
     }
