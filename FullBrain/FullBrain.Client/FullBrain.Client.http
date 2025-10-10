@@ -1,0 +1,7 @@
+@FullBrain.Client_HostAdress = http://localhost:5179
+
+Send request | Debug
+GET {{FullBrain.Client_HostAdress}}/thoughts/
+Accept: application/json
+
+###

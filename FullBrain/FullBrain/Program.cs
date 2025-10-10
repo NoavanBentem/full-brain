@@ -1,11 +1,15 @@
 using MudBlazor.Services;
 using FullBrain.Client.Pages;
 using FullBrain.Components;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add MudBlazor services
 builder.Services.AddMudServices();
+
+// Add configuration EF Core
+builder.Services.AddDbContext<DbContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnectionString")));
 
 // Add services to the container.
 builder.Services.AddRazorComponents()

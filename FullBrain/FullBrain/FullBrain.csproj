@@ -8,8 +8,29 @@
 
 
   <ItemGroup>
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.4" />
     <ProjectReference Include="..\FullBrain.Client\FullBrain.Client.csproj" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="9.*" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Compile Remove="Service\**" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Service\**" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Content Remove="Service\**" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <None Remove="Service\**" />
   </ItemGroup>
 
 </Project>

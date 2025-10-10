@@ -1,4 +1,4 @@
-namespace FullBrain.Client.Models;
+namespace FullBrain.Models;
 
 public class ThoughtModel
 {
