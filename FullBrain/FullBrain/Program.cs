@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using FullBrain.Components;
 using FullBrain.Data;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services

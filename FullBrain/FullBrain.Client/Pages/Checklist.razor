@@ -1,0 +1,86 @@
+﻿@page "/checklist"
+
+
+<PageTitle>Checklist</PageTitle>
+
+<div Class="d-flex flex-row flex-grow-1 gap-4">
+<MudPaper Width="300px" Elevation="3">
+    <MudList T="string" SelectionMode="SelectionMode.MultiSelection" CheckBoxColor="Color.Tertiary">
+        <MudListSubheader>
+            To do:
+        </MudListSubheader>
+        <MudListItem Text="Feature definement for checklist component" />
+        <MudListItem Text="Just start on things I know will need to happen if it feels like it gets too big" />
+        <MudListItem Text="DOR">
+            <NestedList>
+                <MudListItem Text="Clear goal: I know what I’m building and why" />
+                <MudListItem Text="Basic user flow is defined (even just bullet points)"/>
+                <MudListItem Text="Acceptance criteria written (how I know it works)" />
+                <MudListItem Text="API/data needs roughly identified (endpoints, models, etc.)" />
+                <MudListItem Text="Dependencies known (auth, external APIs, other features)" />
+                <MudListItem Text="UI rough idea (sketch, wireframe, or mental model)" />
+                <MudListItem Text="Scope is small enough to complete in 1–2 sessions" />
+            </NestedList>
+        </MudListItem>
+        <MudListItem Text="Database">
+            <NestedList>
+                <MudListItem Text="Set up database" />
+                <MudListItem Text="Connect database"/>
+                <MudListItem Text="Fuck around" />
+            </NestedList>
+        </MudListItem>
+        <MudListItem Text="Checklist item component">
+            <NestedList>
+                <MudListItem Text="Create dynamic checklist item that can be set through the interface" />
+                <MudListItem Text=""/>
+                <MudListItem Text="Bubble Tea" />
+            </NestedList>
+        </MudListItem>
+        <MudListItem Text="Checklist component">
+            <NestedList>
+                <MudListItem Text="Make " />
+                <MudListItem Text="Double Espresso" />
+                <MudListItem Text="Cafe Latte" />
+            </NestedList>
+        </MudListItem>
+        <MudCheckBox @bind-Value="Label_CheckBox0" Label="Get the project to run and don't be overwhelmed by opertunities of creation" Color="Color.Tertiary"></MudCheckBox>
+        <MudCheckBox @bind-Value="Label_CheckBox1" Label="Primary" Color="Color.Tertiary">Set smaller goals</MudCheckBox>
+    </MudList>
+</MudPaper>
+
+
+<MudPaper Width="300px" Elevation="3">
+    <MudList T="string" SelectionMode="SelectionMode.MultiSelection" CheckBoxColor="Color.Primary">
+        <MudListItem Text="DOR">
+            <NestedList>
+                <MudListItem Text="Clear goal: I know what I’m building and why" />
+                <MudListItem Text="Basic user flow is defined (even just bullet points)"/>
+                <MudListItem Text="Acceptance criteria written (how I know it works)" />
+                <MudListItem Text="API/data needs roughly identified (endpoints, models, etc.)" />
+                <MudListItem Text="Dependencies known (auth, external APIs, other features)" />
+                <MudListItem Text="UI rough idea (sketch, wireframe, or mental model)" />
+                <MudListItem Text="Scope is small enough to complete in 1–2 sessions" />
+            </NestedList>
+        </MudListItem>
+        <MudListItem Text="DOD">
+            <NestedList>
+                <MudListItem Text="Functionality works end-to-end (frontend ↔ backend)" />
+                <MudListItem Text="Meets acceptance criteria"/>
+                <MudListItem Text="Handles basic edge cases (empty input, errors, loading)" />
+                <MudListItem Text="Code is readable (clear naming, no unnecessary complexity)" />
+                <MudListItem Text="No obvious bugs during manual testing" />
+                <MudListItem Text="Basic validation added (forms, API inputs)" />
+                <MudListItem Text="Console is clean (no errors/warnings)" />
+                <MudListItem Text="Git commit made with a clear message" />
+                <MudListItem Text="Unit tests rather TDD" />
+            </NestedList>
+        </MudListItem>
+    </MudList>
+</MudPaper>
+</div>
+
+@code
+{
+    public bool Label_CheckBox0 { get; set; } = true;
+    public bool Label_CheckBox1 { get; set; } = true;
+}
