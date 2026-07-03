@@ -2,24 +2,21 @@ using MudBlazor.Services;
 using Microsoft.EntityFrameworkCore;
 using FullBrain.Components;
 using FullBrain.Data;
+using FullBrain.Services;
 
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseNpgsql(
+        builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddMudServices();
 builder.Services.AddControllers();
-builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseNpgsql (builder.Configuration.GetConnectionString("DefaultConnection")));
-
-
-// Add configuration EF Core
-builder.Services.AddDbContext<DbContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnectionString")));
-
-// Add services to the container
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
+builder.Services.AddScoped<ChecklistService>();
+
 
 var app = builder.Build();
 
@@ -46,5 +43,11 @@ app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode()
     .AddInteractiveWebAssemblyRenderMode()
     .AddAdditionalAssemblies(typeof(FullBrain.Client._Imports).Assembly);
+
+app.MapGet("/v1/api/checklists", async (AppDbContext db) =>
+{
+    return await db.Checklists.ToListAsync();
+});
+
 
 app.Run();
